@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package user.type;
+
+option go_package = "github.com/faujiahmat/cleuse-proto/protogen/user";
+
+message RefreshToken {
+  string token = 2;
+}
+
+message AddRefreshTokenRequest {
+  string email = 1;
+  string token = 2;
+}

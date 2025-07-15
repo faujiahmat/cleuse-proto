@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package user;
+
+import "proto/user/type/login_google.proto";
+import "proto/user/type/register_request.proto";
+import "proto/user/type/user.proto";
+import "proto/user/type/token.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/faujiahmat/cleuse-proto/protogen/user";
+
+service UserService {
+  rpc Create(user.type.RegisterRequest) returns (google.protobuf.Empty) {}
+  rpc FindByEmail(user.type.Email) returns (user.type.FindUserResponse) {}
+  rpc FindByRefreshToken(user.type.RefreshToken) returns (user.type.FindUserResponse) {}
+  rpc Upsert(user.type.LoginWithGoogleRequest) returns (user.type.User) {}
+  rpc AddRefreshToken(user.type.AddRefreshTokenRequest) returns (google.protobuf.Empty) {}
+  rpc SetNullRefreshToken(user.type.RefreshToken) returns (google.protobuf.Empty) {}
+}

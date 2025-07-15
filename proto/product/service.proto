@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package product;
+
+import "proto/product/type/cart.proto";
+import "proto/product/type/product.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/faujiahmat/cleuse-proto/protogen/product";
+
+service ProductService {
+  rpc FindManyByIdsForCart(product.type.ProductIds) returns (product.type.ProductCartResponse) {}
+  rpc ReduceStocks(product.type.ReduceStocksRequest) returns (google.protobuf.Empty) {}
+  rpc RollbackStocks(product.type.RollbackStocksRequest) returns (google.protobuf.Empty) {}
+}

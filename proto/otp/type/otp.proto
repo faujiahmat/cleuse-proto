@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package otp.type;
+
+option go_package = "github.com/faujiahmat/cleuse-proto/protogen/otp";
+
+message SendRequest {
+  string email = 1;
+}
+
+message VerifyRequest {
+  string email = 1;
+  string otp = 2;
+}
+
+message VerifyResponse {
+  bool valid = 1;
+}

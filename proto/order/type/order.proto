@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package order.type;
+
+option go_package = "github.com/faujiahmat/cleuse-proto/protogen/order";
+
+message AddShippingIdRequest {
+  string order_id = 1 [json_name = "product_id"];
+  string shipping_id = 2 [json_name = "shipping_id"];
+}
+
+message UpdateStatusRequest {
+  string order_id = 1 [json_name = "product_id"];
+  string status = 2;
+}
